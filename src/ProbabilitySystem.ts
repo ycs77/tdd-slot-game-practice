@@ -1,5 +1,5 @@
 export class ProbabilitySystem {
-  spin() {
-    return 0
+  spin(betLine: string) {
+    return betLine === 'L1' ? 20 : 0
   }
 }
