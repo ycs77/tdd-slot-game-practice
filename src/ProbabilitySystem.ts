@@ -1,5 +1,7 @@
+import { Reels } from './Reels'
+
 export class ProbabilitySystem {
-  reels: string[][] = [
+  oldReels: string[][] = [
     ['A', 'Q', 'K'],
     ['A', 'Q', 'K'],
     ['A', 'Q', 'K'],
@@ -7,13 +9,10 @@ export class ProbabilitySystem {
     ['A', '10', 'J'],
   ]
 
-  spin(betLine: string) {
-    const firstSymbols = new Set<string>()
-    for (const reel of this.reels) {
-      firstSymbols.add(reel[0])
-    }
+  reels: Reels = new Reels(this.oldReels)
 
-    if (firstSymbols.size === 1 && betLine === 'L1') {
+  spin(betLine: string) {
+    if (this.reels.isRow1Hit() && betLine === 'L1') {
       return 20
     }
 
