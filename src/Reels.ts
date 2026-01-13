@@ -5,6 +5,10 @@ export class Reels {
     //
   }
 
+  static create(reels: string[][]): Reels {
+    return new Reels(reels)
+  }
+
   isRowHit(rowIndex: number): boolean {
     const symbols = new Set<string>()
     this.reels.forEach(reel => {

@@ -7,6 +7,10 @@ export class ProbabilitySystem {
     //
   }
 
+  static create(reels: Reels): ProbabilitySystem {
+    return new ProbabilitySystem(reels)
+  }
+
   spin(betLine: string): number {
     if (this.reels.isRowHit(0) && betLine === 'L1') {
       return 20
