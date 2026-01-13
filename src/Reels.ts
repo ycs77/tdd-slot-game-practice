@@ -12,4 +12,12 @@ export class Reels {
     })
     return firstSymbols.size === 1
   }
+
+  isRow2Hit(): boolean {
+    const firstSymbols = new Set<string>()
+    this.reels.forEach(reel => {
+      firstSymbols.add(reel[1])
+    })
+    return firstSymbols.size === 1
+  }
 }
