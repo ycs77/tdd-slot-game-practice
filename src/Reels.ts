@@ -5,19 +5,11 @@ export class Reels {
     //
   }
 
-  isRow1Hit(): boolean {
-    const firstSymbols = new Set<string>()
+  isRowHit(rowIndex: number): boolean {
+    const symbols = new Set<string>()
     this.reels.forEach(reel => {
-      firstSymbols.add(reel[0])
+      symbols.add(reel[rowIndex])
     })
-    return firstSymbols.size === 1
-  }
-
-  isRow2Hit(): boolean {
-    const firstSymbols = new Set<string>()
-    this.reels.forEach(reel => {
-      firstSymbols.add(reel[1])
-    })
-    return firstSymbols.size === 1
+    return symbols.size === 1
   }
 }
