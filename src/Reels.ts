@@ -1,8 +1,8 @@
 export class Reels {
-  constructor(
-    private reels: string[][]
-  ) {
-    //
+  private reels: string[][]
+
+  constructor(reels: string[][]) {
+    this.reels = reels
   }
 
   static create(reels: string[][]): Reels {

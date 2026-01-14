@@ -1,10 +1,10 @@
 import type { Reels } from './Reels'
 
 export class ProbabilitySystem {
-  constructor(
-    private reels: Reels
-  ) {
-    //
+  reels: Reels
+
+  constructor(reels: Reels) {
+    this.reels = reels
   }
 
   static create(reels: Reels): ProbabilitySystem {
