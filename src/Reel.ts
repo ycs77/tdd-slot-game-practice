@@ -16,7 +16,16 @@ export class Reel {
   }
 
   getScreenColumn(): string[] {
-    return this.symbols.slice(this.index, this.index + 3)
+    const screenColumn = Array.from({ length: 3 }, (_, j) => {
+      // get cyclic symbols
+      return this.symbols[(this.index + j) % this.symbols.length]
+    })
+
+    if (screenColumn.length !== 3) {
+      throw new Error('Invalid screen column size')
+    }
+
+    return screenColumn
   }
 
   spin(): void {
