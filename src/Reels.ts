@@ -4,13 +4,9 @@ import { Screen } from './Screen'
 
 export class Reels {
   private reels: Reel[]
-  private randomNumberGenerator: RandomNumberGenerator
-  private indices: number[]
 
   constructor(reels: string[][], randomNumberGenerator: RandomNumberGenerator) {
-    this.reels = reels.map(reel => Reel.from(reel))
-    this.randomNumberGenerator = randomNumberGenerator
-    this.indices = [0, 0, 0, 0, 0]
+    this.reels = reels.map(reel => Reel.from(reel, randomNumberGenerator))
   }
 
   static create(randomNumberGenerator: RandomNumberGenerator, reels: string[][]): Reels {
@@ -18,7 +14,7 @@ export class Reels {
   }
 
   spin(): void {
-    this.indices = this.indices.map(() => this.randomNumberGenerator.next())
+    this.reels.forEach(reel => reel.spin())
   }
 
   isRowHit(rowIndex: number): boolean {
@@ -28,9 +24,7 @@ export class Reels {
 
   private getScreen(): Screen {
     return Screen.from(
-      this.reels.map((reel, i) => {
-        return reel.getScreenColumn(this.indices[i])
-      })
+      this.reels.map(reel => reel.getScreenColumn())
     )
   }
 }
