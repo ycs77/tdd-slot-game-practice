@@ -18,12 +18,22 @@ export class Reels {
   }
 
   isRowHit(rowIndex: number): boolean {
-    const localRowIndex = this.nextIndex + rowIndex
+    const screen = this.createScreen()
 
     const symbols = new Set<string>()
-    this.reels.forEach(reel => {
-      symbols.add(reel[localRowIndex])
+    screen.forEach(screenReel => {
+      symbols.add(screenReel[rowIndex])
     })
     return symbols.size === 1
+  }
+
+  private createScreen(): string[][] {
+    const screen: string[][] = []
+
+    this.reels.forEach(reel => {
+      screen.push(reel.slice(this.nextIndex, this.nextIndex + 3))
+    })
+
+    return screen
   }
 }
