@@ -1,3 +1,5 @@
+import { Screen } from './Screen'
+
 export class Reels {
   private reels: string[][]
   private index: number
@@ -19,24 +21,16 @@ export class Reels {
 
   isRowHit(rowIndex: number): boolean {
     const screen = this.getScreen()
-    return this.isScreenRowHit(screen, rowIndex)
+    return screen.isRowHit(rowIndex)
   }
 
-  private isScreenRowHit(screen: string[][], rowIndex: number): boolean {
-    const symbols = new Set<string>()
-    screen.forEach(screenReel => {
-      symbols.add(screenReel[rowIndex])
-    })
-    return symbols.size === 1
-  }
-
-  private getScreen(): string[][] {
-    const screen: string[][] = []
+  private getScreen(): Screen {
+    const rawScreen: string[][] = []
 
     this.reels.forEach(reel => {
-      screen.push(reel.slice(this.nextIndex, this.nextIndex + 3))
+      rawScreen.push(reel.slice(this.nextIndex, this.nextIndex + 3))
     })
 
-    return screen
+    return new Screen(rawScreen)
   }
 }
