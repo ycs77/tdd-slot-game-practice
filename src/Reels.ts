@@ -7,7 +7,7 @@ export class Reels {
   private nextIndex: number
 
   constructor(reels: string[][], nextIndex: number) {
-    this.reels = reels.map(reel => new Reel(reel))
+    this.reels = reels.map(reel => Reel.from(reel))
     this.index = 0
     this.nextIndex = nextIndex
   }
@@ -26,7 +26,7 @@ export class Reels {
   }
 
   private getScreen(): Screen {
-    return new Screen(
+    return Screen.from(
       this.reels.map(reel => reel.getScreenColumn(this.nextIndex))
     )
   }

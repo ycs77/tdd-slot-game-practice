@@ -5,6 +5,10 @@ export class Reel {
     this.symbols = symbols
   }
 
+  static from(symbols: string[]): Reel {
+    return new Reel(symbols)
+  }
+
   getScreenColumn(index: number): string[] {
     return this.symbols.slice(index, index + 3)
   }

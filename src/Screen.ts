@@ -5,6 +5,10 @@ export class Screen {
     this.rawScreen = screen
   }
 
+  static from(screen: string[][]): Screen {
+    return new Screen(screen)
+  }
+
   isRowHit(rowIndex: number): boolean {
     const symbols = new Set<string>()
     this.rawScreen.forEach(screenReel => {
