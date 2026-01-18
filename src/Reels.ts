@@ -18,8 +18,11 @@ export class Reels {
   }
 
   isRowHit(rowIndex: number): boolean {
-    const screen = this.createScreen()
+    const screen = this.getScreen()
+    return this.isScreenRowHit(screen, rowIndex)
+  }
 
+  private isScreenRowHit(screen: string[][], rowIndex: number): boolean {
     const symbols = new Set<string>()
     screen.forEach(screenReel => {
       symbols.add(screenReel[rowIndex])
@@ -27,7 +30,7 @@ export class Reels {
     return symbols.size === 1
   }
 
-  private createScreen(): string[][] {
+  private getScreen(): string[][] {
     const screen: string[][] = []
 
     this.reels.forEach(reel => {
