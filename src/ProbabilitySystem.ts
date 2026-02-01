@@ -1,31 +1,24 @@
+import type { PayTable } from './PayTable'
 import type { Reels } from './Reels'
 
 export class ProbabilitySystem {
   reels: Reels
+  payTable: PayTable
 
-  constructor(reels: Reels) {
+  constructor(reels: Reels, payTable: PayTable) {
     this.reels = reels
+    this.payTable = payTable
   }
 
-  static create(reels: Reels): ProbabilitySystem {
-    return new ProbabilitySystem(reels)
+  static create(reels: Reels, payTable: PayTable): ProbabilitySystem {
+    return new ProbabilitySystem(reels, payTable)
   }
 
-  spin(betLine: string): number {
+  spin(...betLines: string[]): number {
+    // 轉動輪盤
     this.reels.spin()
 
-    if (this.reels.isRowHit(0) && betLine === 'L1') {
-      return 20
-    }
-
-    if (this.reels.isRowHit(1) && betLine === 'L2') {
-      return 20
-    }
-
-    if (this.reels.isRowHit(2) && betLine === 'L3') {
-      return 20
-    }
-
-    return 0
+    // 計算賠率
+    return this.payTable.getOdd(this.reels, betLines)
   }
 }
