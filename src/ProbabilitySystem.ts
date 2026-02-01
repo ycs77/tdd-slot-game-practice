@@ -1,3 +1,4 @@
+import type { Bet } from './Bet'
 import type { PayTable } from './PayTable'
 import type { Reels } from './Reels'
 
@@ -14,11 +15,11 @@ export class ProbabilitySystem {
     return new ProbabilitySystem(reels, payTable)
   }
 
-  spin(...betLines: string[]): number {
+  spin(bet: Bet): number {
     // 轉動輪盤
     this.reels.spin()
 
     // 計算賠率
-    return this.payTable.getOdd(this.reels, betLines)
+    return this.payTable.getOdd(this.reels, bet)
   }
 }
