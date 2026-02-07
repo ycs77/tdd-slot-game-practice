@@ -17,12 +17,7 @@ export class Reels {
     this.reels.forEach(reel => reel.spin())
   }
 
-  isRowHit(rowIndex: number): boolean {
-    const screen = this.getScreen()
-    return screen.isRowHit(rowIndex)
-  }
-
-  private getScreen(): Screen {
+  getScreen(): Screen {
     return Screen.from(
       this.reels.map(reel => reel.getScreenColumn())
     )

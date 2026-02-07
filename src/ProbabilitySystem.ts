@@ -20,6 +20,7 @@ export class ProbabilitySystem {
     this.reels.spin()
 
     // 計算賠率
-    return this.payTable.getOdd(this.reels, bet)
+    const screen = this.reels.getScreen()
+    return this.payTable.getOdd(screen, bet)
   }
 }
