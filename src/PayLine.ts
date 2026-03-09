@@ -8,8 +8,12 @@ export class PayLine {
   ) {}
 
   getOdd(screen: Screen, bet: Bet): number {
-    if (screen.isHit(this.rows) && bet.includes(this.name)) {
-      return 20
+    if (bet.includes(this.name)) {
+      if (screen.getHitLength(this.rows) === 5) {
+        return 20
+      } else if (screen.getHitLength(this.rows) === 4) {
+        return 15
+      }
     }
 
     return 0
