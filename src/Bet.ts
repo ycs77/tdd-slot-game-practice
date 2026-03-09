@@ -1,8 +1,8 @@
 export class Bet {
   private lines: string[]
 
-  constructor(betLines: string[]) {
-    this.lines = betLines
+  constructor(...lines: string[]) {
+    this.lines = lines
   }
 
   includes(line: string): boolean {

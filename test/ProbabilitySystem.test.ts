@@ -26,7 +26,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L2']))).toBe(0)
+    expect(sut.spin(new Bet('L2'))).toBe(0)
   })
 
   test('Row1 hit, bet L1 -> 20', () => {
@@ -48,7 +48,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L1']))).toBe(20)
+    expect(sut.spin(new Bet('L1'))).toBe(20)
   })
 
   test('Row2 hit, bet L2 -> 20', () => {
@@ -70,7 +70,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L2']))).toBe(20)
+    expect(sut.spin(new Bet('L2'))).toBe(20)
   })
 
   test('Row3 hit, bet L3 -> 20', () => {
@@ -92,7 +92,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L3']))).toBe(20)
+    expect(sut.spin(new Bet('L3'))).toBe(20)
   })
 
   test('Roll then Row3 hit, bet L3 -> 20', () => {
@@ -114,7 +114,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L3']))).toBe(20)
+    expect(sut.spin(new Bet('L3'))).toBe(20)
   })
 
   test('Cyclic Rolling', () => {
@@ -136,7 +136,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L3']))).toBe(20)
+    expect(sut.spin(new Bet('L3'))).toBe(20)
   })
 
   test('Each Reel spins independently', () => {
@@ -158,7 +158,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L1']))).toBe(20)
+    expect(sut.spin(new Bet('L1'))).toBe(20)
   })
 
   test('Roll then Row2 hit, bet L1L2L3 -> 20', () => {
@@ -180,7 +180,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L1', 'L2', 'L3']))).toBe(20)
+    expect(sut.spin(new Bet('L1', 'L2', 'L3'))).toBe(20)
   })
 
   test('Roll then Row1Row2 hit, bet L1L2L3 -> 40', () => {
@@ -202,7 +202,7 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L1', 'L2', 'L3']))).toBe(40)
+    expect(sut.spin(new Bet('L1', 'L2', 'L3'))).toBe(40)
   })
 
   test('L4 hit, bet L4 -> 20', () => {
@@ -224,6 +224,6 @@ describe('probability system', () => {
         new PayLine('L4', [0, 1, 2, 1, 0]),
       ])
     )
-    expect(sut.spin(new Bet(['L4']))).toBe(20)
+    expect(sut.spin(new Bet('L4'))).toBe(20)
   })
 })
