@@ -1,6 +1,7 @@
 import type { Bet } from './Bet'
 import type { PayTable } from './PayTable'
 import type { Reels } from './Reels'
+import { SpinResult } from './SpinResult'
 
 export class ProbabilitySystem {
   constructor(
@@ -12,12 +13,14 @@ export class ProbabilitySystem {
     return new ProbabilitySystem(reels, payTable)
   }
 
-  spin(bet: Bet): number {
+  spin(bet: Bet): SpinResult {
     // 轉動輪盤
     this.reels.spin()
 
     // 計算賠率
     const screen = this.reels.getScreen()
-    return this.payTable.getOdd(screen, bet)
+    const odd = this.payTable.getOdd(screen, bet)
+
+    return SpinResult.of(odd, screen.getRawScreenClone())
   }
 }

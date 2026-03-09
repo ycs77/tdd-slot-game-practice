@@ -29,4 +29,8 @@ export class Screen {
 
     return new Hit(firstSymbol, hitLength)
   }
+
+  getRawScreenClone(): string[][] {
+    return this.rawScreen.map(reel => [...reel])
+  }
 }
