@@ -17,7 +17,12 @@ export class Screen {
     return symbols.size === 1
   }
 
-  getRawScreen(): string[][] {
-    return this.rawScreen
+  isHit(): boolean {
+    return (
+      this.rawScreen[0][0] === this.rawScreen[1][1] &&
+      this.rawScreen[1][1] === this.rawScreen[2][2] &&
+      this.rawScreen[2][2] === this.rawScreen[3][1] &&
+      this.rawScreen[3][1] === this.rawScreen[4][0]
+    )
   }
 }
