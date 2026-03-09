@@ -9,20 +9,19 @@ export class Screen {
     return new Screen(screen)
   }
 
-  isRowHit(rowIndex: number): boolean {
-    const symbols = new Set<string>()
-    this.rawScreen.forEach(screenReel => {
-      symbols.add(screenReel[rowIndex])
-    })
-    return symbols.size === 1
-  }
+  isHit(...rows: number[]): boolean {
+    if (rows.length !== this.rawScreen.length) {
+      return false
+    }
 
-  isHit(): boolean {
-    return (
-      this.rawScreen[0][0] === this.rawScreen[1][1] &&
-      this.rawScreen[1][1] === this.rawScreen[2][2] &&
-      this.rawScreen[2][2] === this.rawScreen[3][1] &&
-      this.rawScreen[3][1] === this.rawScreen[4][0]
-    )
+    const firstSymbol = this.rawScreen[0][rows[0]]
+
+    for (let i = 1; i < this.rawScreen.length; i++) {
+      if (this.rawScreen[i][rows[i]] !== firstSymbol) {
+        return false
+      }
+    }
+
+    return true
   }
 }
