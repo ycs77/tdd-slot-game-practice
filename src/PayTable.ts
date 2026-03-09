@@ -21,6 +21,17 @@ export class PayTable {
       odd += 20
     }
 
+    const rawScreen = screen.getRawScreen()
+    if (
+      rawScreen[0][0] === rawScreen[1][1] &&
+      rawScreen[1][1] === rawScreen[2][2] &&
+      rawScreen[2][2] === rawScreen[3][1] &&
+      rawScreen[3][1] === rawScreen[4][0] &&
+      bet.includes('L4')
+    ) {
+      odd += 20
+    }
+
     return odd
   }
 }

@@ -16,4 +16,8 @@ export class Screen {
     })
     return symbols.size === 1
   }
+
+  getRawScreen(): string[][] {
+    return this.rawScreen
+  }
 }
