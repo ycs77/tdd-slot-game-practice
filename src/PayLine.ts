@@ -10,15 +10,21 @@ export class PayLine {
 
   getOdd(screen: Screen, bet: Bet): number {
     const odds = [
-      new Odd(5, 20),
-      new Odd(4, 15),
-      new Odd(3, 10),
+      new Odd('A', 5, 20),
+      new Odd('A', 4, 15),
+      new Odd('A', 3, 10),
+      new Odd('K', 5, 15),
+      new Odd('K', 4, 10),
+      new Odd('K', 3, 8),
     ]
 
     if (!bet.includes(this.name)) {
       return 0
     }
 
-    return odds.find(odd => odd.hitLength === screen.getHitLength(this.rows))?.odd || 0
+    return odds.find(odd => {
+      const hit = screen.getHit(this.rows)
+      return odd.symbol === hit.symbol && odd.hitLength === hit.length
+    })?.odd || 0
   }
 }

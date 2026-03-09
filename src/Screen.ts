@@ -1,3 +1,5 @@
+import { Hit } from './Hit'
+
 export class Screen {
   private rawScreen: string[][]
 
@@ -9,7 +11,7 @@ export class Screen {
     return new Screen(screen)
   }
 
-  getHitLength(rows: number[]): number {
+  getHit(rows: number[]): Hit {
     if (rows.length !== this.rawScreen.length) {
       throw new Error('Invalid number of rows')
     }
@@ -25,6 +27,6 @@ export class Screen {
       hitLength++
     }
 
-    return hitLength
+    return new Hit(firstSymbol, hitLength)
   }
 }

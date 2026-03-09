@@ -270,4 +270,26 @@ describe('probability system', () => {
     )
     expect(sut.spin(new Bet('L1'))).toBe(10)
   })
+
+  test('Row1 hit as K, bet L1 -> 15', () => {
+    const sut = ProbabilitySystem.create(
+      Reels.create(
+        new DesignatedNumberGenerator(0, 0, 0, 0, 0),
+        [
+          ['K', 'Q', 'A'],
+          ['K', '10', 'J'],
+          ['K', 'Q', 'A'],
+          ['K', 'Q', 'A'],
+          ['K', '10', 'J'],
+        ]
+      ),
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
+    )
+    expect(sut.spin(new Bet('L1'))).toBe(15)
+  })
 })
