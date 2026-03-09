@@ -56,11 +56,11 @@ describe('probability system', () => {
       Reels.create(
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
-          ['A', 'Q', 'K'],
-          ['10', 'Q', 'J'],
-          ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
-          ['10', 'Q', 'J'],
+          ['Q', 'A', 'K'],
+          ['10', 'A', 'J'],
+          ['Q', 'A', 'K'],
+          ['Q', 'A', 'K'],
+          ['10', 'A', 'J'],
         ]
       ),
       new PayTable([
@@ -78,11 +78,11 @@ describe('probability system', () => {
       Reels.create(
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
-          ['A', 'Q', 'K'],
-          ['10', 'J', 'K'],
-          ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
-          ['10', 'J', 'K'],
+          ['J', 'Q', 'A'],
+          ['10', 'J', 'A'],
+          ['J', 'Q', 'A'],
+          ['J', 'Q', 'A'],
+          ['10', 'J', 'A'],
         ]
       ),
       new PayTable([
@@ -100,11 +100,11 @@ describe('probability system', () => {
       Reels.create(
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
-          ['9', 'A', 'Q', 'K'],
-          ['10', '10', 'J', 'K'],
-          ['9', 'A', 'Q', 'K'],
-          ['9', 'A', 'Q', 'K'],
-          ['10', '10', 'J', 'K'],
+          ['9', 'A', 'Q', 'A'],
+          ['10', '10', 'J', 'A'],
+          ['9', 'A', 'Q', 'A'],
+          ['9', 'A', 'Q', 'A'],
+          ['10', '10', 'J', 'A'],
         ]
       ),
       new PayTable([
@@ -122,11 +122,11 @@ describe('probability system', () => {
       Reels.create(
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
-          ['K', 'A', 'Q'],
-          ['K', '10', 'J'],
-          ['K', 'A', 'Q'],
-          ['K', 'A', 'Q'],
-          ['K', '10', 'J'],
+          ['A', 'K', 'Q'],
+          ['A', '10', 'J'],
+          ['A', 'K', 'Q'],
+          ['A', 'K', 'Q'],
+          ['A', '10', 'J'],
         ]
       ),
       new PayTable([
@@ -166,11 +166,11 @@ describe('probability system', () => {
       Reels.create(
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
-          ['A', 'Q', 'K'],
-          ['10', 'J', 'K'],
-          ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
-          ['10', 'J', 'K'],
+          ['K', 'Q', 'A'],
+          ['10', 'J', 'A'],
+          ['K', 'Q', 'A'],
+          ['K', 'Q', 'A'],
+          ['10', 'J', 'A'],
         ]
       ),
       new PayTable([
@@ -183,16 +183,16 @@ describe('probability system', () => {
     expect(sut.spin(new Bet('L1', 'L2', 'L3'))).toBe(20)
   })
 
-  test('Roll then Row1Row2 hit, bet L1L2L3 -> 40', () => {
+  test('Roll then Row1 Row3 hit, bet L1L2L3 -> 40', () => {
     const sut = ProbabilitySystem.create(
       Reels.create(
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
-          ['A', 'Q', 'K'],
-          ['10', 'Q', 'K'],
-          ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
-          ['10', 'Q', 'K'],
+          ['A', 'Q', 'A'],
+          ['A', '10', 'A'],
+          ['A', 'Q', 'A'],
+          ['A', 'Q', 'A'],
+          ['A', '10', 'A'],
         ]
       ),
       new PayTable([
