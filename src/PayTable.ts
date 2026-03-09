@@ -15,14 +15,8 @@ export class PayTable {
   }
 
   getOdd(screen: Screen, bet: Bet): number {
-    let odd = 0
-
-    this.payLines.forEach(payLine => {
-      if (screen.isHit(payLine.rows) && bet.includes(payLine.name)) {
-        odd += 20
-      }
-    })
-
-    return odd
+    return this.payLines.reduce((odd, payLine) => {
+      return odd + payLine.getOdd(screen, bet)
+    }, 0)
   }
 }
