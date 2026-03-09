@@ -13,7 +13,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['A', '10', 'J'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['A', '10', 'J'],
@@ -35,7 +35,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['A', '10', 'J'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['A', '10', 'J'],
@@ -57,7 +57,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['10', 'Q', 'J'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['10', 'Q', 'J'],
@@ -79,7 +79,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(0, 0, 0, 0, 0),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['10', 'J', 'K'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['10', 'J', 'K'],
@@ -101,7 +101,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
           ['9', 'A', 'Q', 'K'],
-          ['9', 'A', 'Q', 'K'],
+          ['10', '10', 'J', 'K'],
           ['9', 'A', 'Q', 'K'],
           ['9', 'A', 'Q', 'K'],
           ['10', '10', 'J', 'K'],
@@ -123,7 +123,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
           ['K', 'A', 'Q'],
-          ['K', 'A', 'Q'],
+          ['K', '10', 'J'],
           ['K', 'A', 'Q'],
           ['K', 'A', 'Q'],
           ['K', '10', 'J'],
@@ -145,10 +145,10 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(0, 1, 2, 3, 4),
         [
           ['A', 'Q', 'K'],
-          ['9', 'A', 'Q', 'K'],
+          ['9', 'A', '10', 'J'],
           ['8', '9', 'A', 'Q', 'K'],
           ['7', '8', '9', 'A', 'Q', 'K'],
-          ['6', '7', '8', '9', 'A', 'Q', 'K'],
+          ['6', '7', '8', '9', 'A', '10', 'J'],
         ]
       ),
       new PayTable([
@@ -167,7 +167,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['10', 'J', 'K'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['10', 'J', 'K'],
@@ -189,7 +189,7 @@ describe('probability system', () => {
         new DesignatedNumberGenerator(1, 1, 1, 1, 1),
         [
           ['A', 'Q', 'K'],
-          ['A', 'Q', 'K'],
+          ['10', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['A', 'Q', 'K'],
           ['10', 'Q', 'K'],
