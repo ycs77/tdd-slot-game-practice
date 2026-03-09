@@ -9,7 +9,7 @@ export class Screen {
     return new Screen(screen)
   }
 
-  isHit(...rows: number[]): boolean {
+  isHit(rows: number[]): boolean {
     if (rows.length !== this.rawScreen.length) {
       return false
     }
