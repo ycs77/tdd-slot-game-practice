@@ -8,8 +8,6 @@ export class PayTable {
   ) {}
 
   getOdd(screen: Screen, bet: Bet): number {
-    return this.payLines.reduce((odd, payLine) => {
-      return odd + payLine.getOdd(screen, bet)
-    }, 0)
+    return this.payLines.reduce((odd, payLine) => odd + payLine.getOdd(screen, bet), 0)
   }
 }

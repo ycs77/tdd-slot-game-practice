@@ -22,9 +22,7 @@ export class PayLine {
       return 0
     }
 
-    return odds.find(odd => {
-      const hit = screen.getHit(this.rows)
-      return odd.symbol === hit.symbol && odd.hitLength === hit.length
-    })?.odd || 0
+    const hit = screen.getHit(this.rows)
+    return odds.find(odd => odd.matches(hit))?.odd ?? 0
   }
 }
