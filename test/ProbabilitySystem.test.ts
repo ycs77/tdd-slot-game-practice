@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { Bet } from '../src/Bet'
 import { DesignatedNumberGenerator } from '../src/DesignatedNumberGenerator'
+import { PayLine } from '../src/PayLine'
 import { PayTable } from '../src/PayTable'
 import { ProbabilitySystem } from '../src/ProbabilitySystem'
 import { Reels } from '../src/Reels'
@@ -18,7 +19,12 @@ describe('probability system', () => {
           ['A', '10', 'J'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L2']))).toBe(0)
   })
@@ -35,7 +41,12 @@ describe('probability system', () => {
           ['A', '10', 'J'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L1']))).toBe(20)
   })
@@ -52,7 +63,12 @@ describe('probability system', () => {
           ['10', 'Q', 'J'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L2']))).toBe(20)
   })
@@ -69,7 +85,12 @@ describe('probability system', () => {
           ['10', 'J', 'K'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L3']))).toBe(20)
   })
@@ -86,7 +107,12 @@ describe('probability system', () => {
           ['10', '10', 'J', 'K'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L3']))).toBe(20)
   })
@@ -103,7 +129,12 @@ describe('probability system', () => {
           ['K', '10', 'J'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L3']))).toBe(20)
   })
@@ -120,7 +151,12 @@ describe('probability system', () => {
           ['6', '7', '8', '9', 'A', 'Q', 'K'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L1']))).toBe(20)
   })
@@ -137,7 +173,12 @@ describe('probability system', () => {
           ['10', 'J', 'K'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L1', 'L2', 'L3']))).toBe(20)
   })
@@ -154,7 +195,12 @@ describe('probability system', () => {
           ['10', 'Q', 'K'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L1', 'L2', 'L3']))).toBe(40)
   })
@@ -171,7 +217,12 @@ describe('probability system', () => {
           ['A', 'K', 'J'],
         ]
       ),
-      PayTable.create()
+      new PayTable([
+        new PayLine('L1', [0, 0, 0, 0, 0]),
+        new PayLine('L2', [1, 1, 1, 1, 1]),
+        new PayLine('L3', [2, 2, 2, 2, 2]),
+        new PayLine('L4', [0, 1, 2, 1, 0]),
+      ])
     )
     expect(sut.spin(new Bet(['L4']))).toBe(20)
   })
