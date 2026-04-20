@@ -6,16 +6,16 @@
     "node": "24.x"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --cache --concurrency auto",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "check": "pnpm lint && pnpm typecheck && pnpm test --run"
   },
   "devDependencies": {
-    "@types/node": "^24.10.9",
-    "@ycs77/eslint-config": "^7.0.0",
-    "eslint": "^9.39.2",
-    "typescript": "~5.9.3",
-    "vitest": "^4.0.17"
+    "@types/node": "^24.12.2",
+    "@ycs77/eslint-config": "^8.0.0",
+    "eslint": "^10.2.1",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.4"
   }
 }
