@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest",
+    "check": "pnpm lint && pnpm typecheck && pnpm test --run"
   },
   "devDependencies": {
     "@types/node": "^24.10.9",
