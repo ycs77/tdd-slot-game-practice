@@ -1,14 +1,21 @@
 # AGENTS.md
 
-## Technology Stack
+## Keep This File Strict
+
+- Do not add repo tours, architecture summaries, or file inventories.
+- Only keep constraints, non-obvious behavior, and things an agent must not do.
+- If a fact is easy to find with grep, it probably does not belong here.
+
+## Constraints
 
 - Node.js v24
 - pnpm 10+
-- TypeScript
+- TypeScript formatting: 2 spaces, single quotes, no semicolons, trailing commas
 - Vitest
 
-## Coding Style
+## Commands
 
-- Indent with 2 spaces
-- Use single quotes for strings
-- No semicolons at the end of statements
+- `pnpm lint --fix`
+- `pnpm lint [...files] --fix`
+- `pnpm typecheck`
+- `pnpm test --run`
